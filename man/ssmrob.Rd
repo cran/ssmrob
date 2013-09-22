@@ -5,7 +5,7 @@
 Robust Sample Selection Model
 }
 \description{
-Function provides the robust two-stage estimators of truncated selection model (tobit-2) and switching regression model (tobit-5).
+Function provides the robust two-stage estimators of truncated selection model (Tobit-2) and switching regression model (Tobit-5).
 }
 \usage{
 ssmrob(outcome, selection, control = heckitrob.control())
@@ -31,7 +31,7 @@ Object of class "heckitrob" or object of class "heckit5rob".
 \references{
 Heckman, J.J. (1979). Sample Selection Bias as a Specification Error. \emph{Econometrica}, 47, p. 153-161.
 
-Zhelonkin, M., Genton M.G., and Ronchetti, E. (2012). Robust Inference in Sample Selection Models, \emph{Manuscript}.
+Zhelonkin, M., Genton M.G., and Ronchetti, E. (2013). Robust Inference in Sample Selection Models, \emph{Manuscript}.
 
 Amemiya, T. (1984). Tobit Models: a Survey. \emph{Journal of Econometrics}, 24, p. 3-61.
 }
@@ -48,7 +48,7 @@ Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
 \code{\link{heckitrob}}, \code{\link{heckit5rob}}
 }
 \examples{
-# sample selection model (tobit-2)
+# sample selection model (Tobit-2)
 data(MEPS2001)
 attach(MEPS2001)
 selectEq <- dambexp ~ age+female+educ+blhisp+totchr+ins
@@ -56,7 +56,7 @@ outcomeEq <- lnambx ~ age+female+educ+blhisp+totchr+ins
 summary(ssmrob(outcomeEq,selectEq,control=heckitrob.control(tcc=3.2,weights.x1="robCov")))
 
 
-# switching regressions example (tobit-5)
+# switching regressions example (Tobit-5)
 library(mvtnorm)
 covm <- diag(3)
 covm[lower.tri(covm)] <- c(0.75, 0.5, 0.25)

@@ -1,4 +1,4 @@
-30889c61ccd060d7ac7d7a7dd1bd52e5 *DESCRIPTION
+c89453b88e3082cc4f454d5ee8a187dd *DESCRIPTION
 df390c53434517b304ac5db487184641 *NAMESPACE
 44949694c3d721393c7fe19959b0283c *R/MmatrM.R
 63239af30b7521a32183e61ce6ba6329 *R/PsiMest.R
@@ -26,8 +26,8 @@ f10a5c3bb5ced9e1e1d5b7819890b0df *R/vcov.heckit5rob.R
 583a702980492bdeeee30bcdea91da83 *R/vcov.heckitrob.R
 3a0ce0a458d7fa425342e8565d482269 *R/x2weight.covMcd.R
 8bfa4823fbc045441222df330bac8d4e *R/x2weight.robCov.R
-b430423948a6c76f79449a7ea497151f *data/MEPS2001.rda
-c668bd59f3c873db85747bb0036a3691 *data/MROZ.RAW.rda
+ad4424c6fa5d93b64fabb81f062a894e *data/MEPS2001.rda
+3545b7b75846896833b8d5a1fa9f0fb7 *data/MROZ.RAW.rda
 5ed6ef0f604f6afba3a398deec13048f *man/MEPS2001.Rd
 9552c3df520a09e070e7ea460f070c64 *man/MROZ.RAW.Rd
 75a73c4535d48f25fdb696e954240cdb *man/MmatrM.Rd
@@ -40,8 +40,8 @@ ff818e05829e9bf5f3de0a88b9e8b3f0 *man/dLambdadSM5.Rd
 28b57473c5df17c2f83f8d086c75daab *man/fitted.heckitrob.Rd
 43b996bff562071dd75d635d3edf84a6 *man/heck2steprobVcov.Rd
 6fd3c0068a70b45409ba49d3f50d87f1 *man/heck5twosteprobVcov.Rd
-034957d77596dec2dddba74173b742e5 *man/heckit5rob.Rd
-f8f853285d0cc6da8528a8d70a8471f8 *man/heckitrob.Rd
+9cf24cd8556d191ba1c4b952cd7da489 *man/heckit5rob.Rd
+af9cd57975f088feb84f9829f9b6bb84 *man/heckitrob.Rd
 ecd1e4174d2f8f4aa0c47b0266061097 *man/heckitrob.control.Rd
 7a5213df319e241045e12988bae71d17 *man/print.heckit5rob.Rd
 779e63e73197f1da518e87312762bf21 *man/print.heckitrob.Rd
@@ -49,8 +49,8 @@ aec27788a28c6fae3d03e9a546db4164 *man/print.summary.heckit5rob.Rd
 1b39cfaba778fafc06dbcba445f5942a *man/print.summary.heckitrob.Rd
 de3057969e55e9c69eed76c1e330f063 *man/residuals.heckit5rob.Rd
 cf37debc3a5231c7333ff38f481948f5 *man/residuals.heckitrob.Rd
-57cc8d7c5b56249a116b87868c125e26 *man/ssmrob-package.Rd
-4ac29d5da1fb413414eaa84eed868d9e *man/ssmrob.Rd
+b433fb72177fdce3fa72e909205efb3d *man/ssmrob-package.Rd
+af7d8798a778d3c48fb8e86855a06823 *man/ssmrob.Rd
 ebe7c433327a82c1618226f3aa4126fb *man/summary.heckit5rob.Rd
 d1cf2df33a5021fda48c85f62a962b28 *man/summary.heckitrob.Rd
 db152775a43ea23283b81df11f250e0c *man/vcov.heckit5rob.Rd

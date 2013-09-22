@@ -14,7 +14,7 @@ models with sample selectivity.
 Package: \tab robHeck \cr
 Type: \tab Package \cr
 Version: \tab 0.2 \cr
-Date: \tab 2012-11-09 \cr
+Date: \tab 2013-09-19 \cr
 License: \tab GPL-2 \cr
 }
 %~~ An overview of how to use the package, including the most important functions ~~
@@ -27,7 +27,7 @@ Maintainer: Mikhail Zhelonkin <Mikhail.Zhelonkin@unige.ch>
 \references{
 Heckman, J.J. (1979). Sample Selection Bias as a Specification Error. \emph{Econometrica}, 47, p. 153-161.
 
-Zhelonkin, M., Genton M.G., and Ronchetti, E. (2012). Robust Inference in Sample Selection Models, \emph{Manuscript}.
+Zhelonkin, M., Genton M.G., and Ronchetti, E. (2013). Robust Inference in Sample Selection Models, \emph{Manuscript}.
 }
 \keyword{ Robust estimation }
 \keyword{ Sample selection }
