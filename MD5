@@ -1,5 +1,5 @@
-c89453b88e3082cc4f454d5ee8a187dd *DESCRIPTION
-df390c53434517b304ac5db487184641 *NAMESPACE
+7f5abdb00662c8b409c92a1d7df1e639 *DESCRIPTION
+aa7ae4497a766063d8cbbce3ddb0ed47 *NAMESPACE
 44949694c3d721393c7fe19959b0283c *R/MmatrM.R
 63239af30b7521a32183e61ce6ba6329 *R/PsiMest.R
 1409a3ad5ea853e9debb96daa9cf951e *R/coef.heckit5rob.R
@@ -10,9 +10,9 @@ b96aeeb99c4903fa760f4752d209fa93 *R/dLambdadSM5.R
 0e3870d266837c5f3a32147ffcb402e0 *R/fitted.heckitrob.R
 38e87b082381539de7fd09709defb36a *R/heck2steprobVcov.R
 8f427e02d1705b77e5bdae19da445d6a *R/heck5twosteprobVcov.R
-4f2625ebde19d00a68dce114361d0a61 *R/heckit5rob.R
-0aad3ce7c1dc0e0fdbdd2225f17a13aa *R/heckitrob.R
-ea59236b7f7bbc6951ca72a2334f82b1 *R/heckitrob.control.R
+438853a0c84196cfa9c9e1ad1659a105 *R/heckit5rob.R
+c1c195665c94a343ec2a5146e05b0e2f *R/heckitrob.R
+d0e53d5f81b5c3ddfdadab8cf6529850 *R/heckitrob.control.R
 2568e21f7f5467d05cc5028f56d87659 *R/print.heckit5rob.R
 22dbcb3a3c4b140e8618b664eb68e25c *R/print.heckitrob.R
 d85023b0741656ac106f7a35353bfa4f *R/print.summary.heckit5rob.R
@@ -26,8 +26,8 @@ f10a5c3bb5ced9e1e1d5b7819890b0df *R/vcov.heckit5rob.R
 583a702980492bdeeee30bcdea91da83 *R/vcov.heckitrob.R
 3a0ce0a458d7fa425342e8565d482269 *R/x2weight.covMcd.R
 8bfa4823fbc045441222df330bac8d4e *R/x2weight.robCov.R
-ad4424c6fa5d93b64fabb81f062a894e *data/MEPS2001.rda
-3545b7b75846896833b8d5a1fa9f0fb7 *data/MROZ.RAW.rda
+5f779a9786376d25b2de95733e988662 *data/MEPS2001.rda
+37f38e558d3f3a9edd87cb02a713580a *data/MROZ.RAW.rda
 5ed6ef0f604f6afba3a398deec13048f *man/MEPS2001.Rd
 9552c3df520a09e070e7ea460f070c64 *man/MROZ.RAW.Rd
 75a73c4535d48f25fdb696e954240cdb *man/MmatrM.Rd
@@ -42,7 +42,7 @@ ff818e05829e9bf5f3de0a88b9e8b3f0 *man/dLambdadSM5.Rd
 6fd3c0068a70b45409ba49d3f50d87f1 *man/heck5twosteprobVcov.Rd
 9cf24cd8556d191ba1c4b952cd7da489 *man/heckit5rob.Rd
 af9cd57975f088feb84f9829f9b6bb84 *man/heckitrob.Rd
-ecd1e4174d2f8f4aa0c47b0266061097 *man/heckitrob.control.Rd
+280d880668ae89859067d320f937186e *man/heckitrob.control.Rd
 7a5213df319e241045e12988bae71d17 *man/print.heckit5rob.Rd
 779e63e73197f1da518e87312762bf21 *man/print.heckitrob.Rd
 aec27788a28c6fae3d03e9a546db4164 *man/print.summary.heckit5rob.Rd

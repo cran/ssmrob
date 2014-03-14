@@ -1,1 +1,5 @@
 exportPattern("^[[:alpha:]]+")
+import(MASS)
+import(sampleSelection)
+import(robustbase)
+import(mvtnorm)

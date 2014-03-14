@@ -66,8 +66,8 @@ function(outcome1, outcome2, selection, control=heckitrob.control())
     if(control$weights.x2=="hat") x2weight2=sqrt(1-hat(xMat2)) else
       if(control$weights.x2=="robCov") x2weight2=x2weight.robCov(xMat2) else
         if(control$weights.x2=="covMcd") x2weight2=x2weight.covMcd(xMat2)
-  result$stage21=rlm(YO1 ~ XO1+IMR1-1, method="M", psi=psi.huber, k=control$t.c, weights=x2weight1, subset=YS==1)
-  result$stage22=rlm(YO2 ~ XO2+IMR2-1, method="M", psi=psi.huber, k=control$t.c, weights=x2weight2, subset=YS==0)
+  result$stage21=rlm(YO1 ~ XO1+IMR1-1, method="M", psi=psi.huber, k=control$t.c, weights=x2weight1, maxit=control$maxitO, subset=YS==1)
+  result$stage22=rlm(YO2 ~ XO2+IMR2-1, method="M", psi=psi.huber, k=control$t.c, weights=x2weight2, maxit=control$maxitO, subset=YS==0)
   xMat1=model.matrix(result$stage21)
   xMat2=model.matrix(result$stage22)
   x2weight1=subset(x2weight1, YS==1)

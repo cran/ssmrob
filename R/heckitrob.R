@@ -43,11 +43,10 @@ function(outcome, selection, control=heckitrob.control())
     if(control$weights.x2=="hat") x2weight=sqrt(1-hat(xMat)) else
       if(control$weights.x2=="robCov") x2weight=x2weight.robCov(xMat) else
         if(control$weights.x2=="covMcd") x2weight=x2weight.covMcd(xMat)
-  result$stage2=rlm(YO ~ XO+imrData$IMR1-1, method="M", psi=psi.huber, k=control$t.c, weights=x2weight, subset=YS==1)
+  result$stage2=rlm(YO ~ XO+imrData$IMR1-1, method="M", psi=psi.huber, k=control$t.c, weights=x2weight, maxit=control$maxitO, subset=YS==1)
   xMat=model.matrix(result$stage2)
   x2weight=subset(x2weight, YS==1)
   result$vcov=heck2steprobVcov(YS[YS==1], YO[YS==1], model.matrix(result$stage1)[YS==1,], xMat, result$stage1, result$stage2$coeff, result$stage2$s, x2weight, control$t.c)
-  
   result$method="robust two-stage"
   class(result)<- c("heckitrob", class(result))
   return(result)

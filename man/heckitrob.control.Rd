@@ -8,9 +8,10 @@ Auxiliary for Controlling Robust Fitting
 Auxiliary function used for fitting the sample selection models. Contains control sequences, tuning constants and robustness weight functions.
 }
 \usage{
-heckitrob.control(acc = 1e-04, test.acc = "coef", maxit = 50, tcc = 1.345, 
-                    weights.x1 = c("none", "hat", "robCov", "covMcd"), 
-                    weights.x2 = c("none", "hat", "robCov", "covMcd"), t.c = 1.345)
+heckitrob.control(acc = 1e-04, test.acc = "coef", maxit = 50, maxitO = 50, 
+                               weights.x1 = c("none", "hat", "robCov", "covMcd"), 
+                               weights.x2 = c("none", "hat", "robCov", "covMcd"),
+                               tcc = 1.345, t.c = 1.345)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,16 +22,19 @@ positive convergence level
 Only "coef" is currently implemented
 }
   \item{maxit}{
-integer giving the maximum number of iterations
+integer giving the maximum number of iterations: selection equation
 }
-  \item{tcc}{
-tuning constant c for Huber's psi-function for the selection stage
+  \item{maxitO}{
+integer giving the maximum number of iterations: outcome equation
 }
   \item{weights.x1}{
 robustness weights controlling for the leverage effect in the selection equation
 }
   \item{weights.x2}{
 robustness weights controlling for the leverage effect in the outcome equation
+}
+  \item{tcc}{
+tuning constant c for Huber's psi-function for the selection stage
 }
   \item{t.c}{
 tuning constant c for Huber's psi-function for the outcome stage
