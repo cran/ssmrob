@@ -1,22 +1,19 @@
-\name{print.summary.heckit5rob}
-\alias{print.summary.heckit5rob}
+\name{coef.etregrob}
+\alias{coef.etregrob}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
- Print function for summary.heckit5rob
+Extract Coefficients from Robust Endogenous Treatment Model
 }
 \description{
- Print a \code{\link{summary.heckit5rob}} object
+Returns the coefficients of the robust two-stage estimator for endogentous treatment model.
 }
 \usage{
-\method{print}{summary.heckit5rob}(x, digits = 4, ...)
+\method{coef}{etregrob}(object, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-Object of class summary.heckit5rob returned by summary function
-}
-  \item{digits}{
-number of nonzero digits after comma
+  \item{object}{
+object of class "\code{\link{etregrob}}"
 }
   \item{\dots}{
 currently not used
@@ -25,18 +22,18 @@ currently not used
 %\details{
 %%  ~~ If necessary, more details than the description above ~~
 %}
-%\value{
-%%  ~Describe the value returned
+\value{
+Returns a list of two vectors of parameters of two stages.
 %%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
+  \item{S }{coefficients of the selection equation.}
+  \item{O }{coefficients of the outcome equation.}
 %% ...
-%}
+}
 %\references{
 %% ~put references to the literature/web site here ~
 %}
 \author{
-Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
+Mikhail Zhelonkin
 }
 %\note{
 %%  ~~further notes~~
@@ -52,8 +49,17 @@ Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
 %##-- ==>  Define data, use random,
 %##--	or do  help(data=index)  for the standard data sets.
 %
+%## The function is currently defined as
+%function (object, ...) 
+%{
+%    coeff <- list()
+%    coeff$S <- coef(object$stage1)
+%    coeff$O <- coef(object$stage2)
+%    class(coeff) <- c("coef.etregrob", class(coeff), class(coeff$S))
+%    return(coeff)
+%  }
 %}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-%\keyword{ ~kwd1 }
+%\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
 %\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

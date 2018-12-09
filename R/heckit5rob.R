@@ -51,31 +51,47 @@ function(outcome1, outcome2, selection, control=heckitrob.control())
   XO2 <- model.matrix(mtO2, mfO2)
   NXO2 <- ncol(XO2)
   YO2 <- model.response(mfO2)
-  result$stage1 <- glmrob(YS~XS-1, family=binomial(link=probit),
-                            method="Mqle",weghts.on.x=control$weights.x1, control = glmrobMqle.control(acc=control$acc, maxit=control$maxit, tcc=control$tcc))
+  if(attributes(XS)$dimnames[[2]][1] == "(Intercept)") { XS <- XS[,-1]; seqn <- YS ~ XS} 
+  else {seqn <- YS ~ XS - 1}
+  result$stage1 <- glmrob(seqn, family = binomial(link = probit),
+                          method="Mqle", weights.on.x = control$weights.x1, 
+                          control = glmrobMqle.control(acc = control$acc, 
+                                    maxit=control$maxit, tcc = control$tcc))
   imrData=invMillsRatio(result$stage1)
   IMR1=imrData$IMR1
   IMR2=-imrData$IMR0
   xMat1=cbind(XO1, IMR1)
   xMat2=cbind(XO2, IMR2)
-  if(control$weights.x2=="none") x2weight1=rep(1, length(YS)) else
-    if(control$weights.x2=="hat") x2weight1=sqrt(1-hat(xMat1)) else
-      if(control$weights.x2=="robCov") x2weight1=x2weight.robCov(xMat1) else
-        if(control$weights.x2=="covMcd") x2weight1=x2weight.covMcd(xMat1)
-  if(control$weights.x2=="none") x2weight2=rep(1, length(YS)) else
-    if(control$weights.x2=="hat") x2weight2=sqrt(1-hat(xMat2)) else
-      if(control$weights.x2=="robCov") x2weight2=x2weight.robCov(xMat2) else
-        if(control$weights.x2=="covMcd") x2weight2=x2weight.covMcd(xMat2)
-  result$stage21=rlm(YO1 ~ XO1+IMR1-1, method="M", psi=psi.huber, k=control$t.c, weights=x2weight1, maxit=control$maxitO, subset=YS==1)
-  result$stage22=rlm(YO2 ~ XO2+IMR2-1, method="M", psi=psi.huber, k=control$t.c, weights=x2weight2, maxit=control$maxitO, subset=YS==0)
-  xMat1=model.matrix(result$stage21)
-  xMat2=model.matrix(result$stage22)
-  x2weight1=subset(x2weight1, YS==1)
-  x2weight2=subset(x2weight2, YS==0)
-  result$vcov1=heck2steprobVcov(YS[YS==1], YO1[YS==1], model.matrix(result$stage1)[YS==1,], xMat1, result$stage1, result$stage21$coeff, result$stage21$s, x2weight1, control$t.c)
-  result$vcov2=heck5twosteprobVcov(YS[YS==0], YO2[YS==0], model.matrix(result$stage1)[YS==0,], xMat2, result$stage1, result$stage22$coeff, result$stage22$s, x2weight2, control$t.c)
-  
-  result$method="robust two-stage"
-  class(result)<- c("heckit5rob", class(result))
+  if(control$weights.x2 == "none") x2weight1 <- rep(1, length(YS)) else
+    if(control$weights.x2 == "hat") x2weight1 <- sqrt(1 - hat(xMat1)) else
+      if(control$weights.x2 == "robCov") x2weight1 <- x2weight.robCov(xMat1) else
+        if(control$weights.x2 == "covMcd") x2weight1 <- x2weight.covMcd(xMat1)
+  if(control$weights.x2 == "none") x2weight2 <- rep(1, length(YS)) else
+    if(control$weights.x2 == "hat") x2weight2 <- sqrt(1-hat(xMat2)) else
+      if(control$weights.x2 == "robCov") x2weight2 <- x2weight.robCov(xMat2) else
+        if(control$weights.x2 == "covMcd") x2weight2 <- x2weight.covMcd(xMat2)
+  result$stage21 <- rlm(YO1 ~ XO1 + IMR1 - 1, method="M", psi = psi.huber, k=control$t.c, weights=x2weight1, maxit=control$maxitO, subset=YS==1)
+  result$stage22 <- rlm(YO2 ~ XO2 + IMR2 - 1, method="M", psi = psi.huber, k=control$t.c, weights=x2weight2, maxit=control$maxitO, subset=YS==0)
+  xMat1 <- model.matrix(result$stage21)
+  xMat2 <- model.matrix(result$stage22)
+  x2weight1 <- subset(x2weight1, YS==1)
+  x2weight2 <- subset(x2weight2, YS==0)
+  result$vcov1 <- heck2steprobVcov(YS[YS==1], YO1[YS==1], model.matrix(result$stage1)[YS==1,], xMat1, result$stage1, result$stage21$coeff, result$stage21$s, x2weight1, control$t.c)
+  result$vcov2 <- heck5twosteprobVcov(YS[YS==0], YO2[YS==0], model.matrix(result$stage1)[YS==0,], xMat2, result$stage1, result$stage22$coeff, result$stage22$s, x2weight2, control$t.c)
+  nr.coef <- length(result$stage21$coefficients)
+  names(result$stage21$coefficients)[1:(nr.coef-1)] <- substring(names(result$stage21$coefficients)[1:(nr.coef-1)], 3)
+  names(result$stage21$coefficients)[nr.coef] <- substring(names(result$stage21$coefficients)[nr.coef], 9)
+  nr.coef <- length(result$stage22$coefficients)
+  names(result$stage22$coefficients)[1:(nr.coef-1)] <- substring(names(result$stage22$coefficients)[1:(nr.coef-1)], 3)
+  names(result$stage22$coefficients)[nr.coef] <- substring(names(result$stage22$coefficients)[nr.coef], 9)
+  if(names(result$stage1$coefficients)[1]=="(Intercept)")
+  { nr.coef <- length(result$stage1$coefficients)
+  names(result$stage1$coefficients)[2:nr.coef] <- substring(names(result$stage1$coefficients)[2:nr.coef], 3)
+  } else
+  { nr.coef <- length(result$stage1$coefficients)
+  names(result$stage1$coefficients)[1:nr.coef] <- substring(names(result$stage1$coefficients)[1:nr.coef], 3)
+  }
+  result$method <- "robust two-stage"
+  class(result) <- c("heckit5rob", class(result))
   return(result)
 }

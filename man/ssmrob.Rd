@@ -29,11 +29,11 @@ Outcome equation may be a simple formula for the case of truncated selection mod
 Object of class "heckitrob" or object of class "heckit5rob".
 }
 \references{
+Amemiya, T. (1984). Tobit Models: a Survey. \emph{Journal of Econometrics}, 24, p. 3-61.
+
 Heckman, J.J. (1979). Sample Selection Bias as a Specification Error. \emph{Econometrica}, 47, p. 153-161.
 
-Zhelonkin, M., Genton M.G., and Ronchetti, E. (2013). Robust Inference in Sample Selection Models, \emph{Manuscript}.
-
-Amemiya, T. (1984). Tobit Models: a Survey. \emph{Journal of Econometrics}, 24, p. 3-61.
+Zhelonkin, M., Genton M.G., and Ronchetti, E. (2016) Robust Inference in Sample Selection Models. \emph{Journal of the Royal Statistical Society, Series B}, 78, p. 805-827.
 }
 \author{
 Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti

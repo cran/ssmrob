@@ -1,4 +1,4 @@
-print.heckitrob <-
+print.etregrob <-
 function(x, digits = 4, ...)
 {
   print(x$method)

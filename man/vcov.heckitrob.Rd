@@ -23,10 +23,6 @@ currently not used
 %}
 \value{
 Variance covariance matrix of the second stage. Variance covariance matrix of the selection stage can be extracted using the \code{vcov} function for the probit estimator, e.g. \code{vcov(heckitrob.object$stage1)}.
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
 }
 %\references{
 %}

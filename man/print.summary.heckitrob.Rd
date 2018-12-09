@@ -8,12 +8,15 @@
  Print a \code{\link{summary.heckitrob}} object
 }
 \usage{
-\method{print}{summary.heckitrob}(x, ...)
+\method{print}{summary.heckitrob}(x, digits = 4, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
 Object of class summary.heckitrob returned by summary function
+}
+  \item{digits}{
+number of nonzero digits after comma
 }
   \item{\dots}{
 currently not used

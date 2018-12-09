@@ -1,5 +1,5 @@
 print.heckit5rob <-
-function(x, ...)
+function(x, digits = 4, ...)
 {
   print(x$method)
   cat("selection stage coefficients: \n")

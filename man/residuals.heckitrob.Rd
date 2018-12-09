@@ -2,7 +2,8 @@
 \alias{residuals.heckitrob}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Residuals of Robust Sample Selection Model}
+Residuals of Robust Sample Selection Model
+}
 \description{
 Calculate the residuals of the sample selection model using robust fit.
 }
@@ -22,7 +23,7 @@ currently not used
 In case of truncated selection model one vector of residuals is returned. In case of switching regression model two vectors corresponding to two regimes are returned.
 }
 \value{
-The numeric vector(s) of the residuals.
+The numeric vector(s) of residuals.
 }
 
 \author{

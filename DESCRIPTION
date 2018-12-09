@@ -1,14 +1,14 @@
 Package: ssmrob
 Type: Package
-Title: Robust estimation and inference in sample selection models
-Version: 0.4
-Date: 2014-03-14
+Title: Robust Estimation and Inference in Sample Selection Models
+Version: 0.5
+Date: 2018-12-09
 Author: Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
 Maintainer: Mikhail Zhelonkin <Mikhail.Zhelonkin@gmail.com>
 Description: Package provides a set of tools for robust estimation and inference for models with sample selectivity.
 License: GPL-2
 Depends: sampleSelection, robustbase, mvtnorm, MASS
-Packaged: 2014-03-15 16:38:20 UTC; Administrateur
 NeedsCompilation: no
+Packaged: 2018-12-09 21:13:52 UTC; Mikhail
 Repository: CRAN
-Date/Publication: 2014-03-15 18:37:00
+Date/Publication: 2018-12-09 22:10:03 UTC

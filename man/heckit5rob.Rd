@@ -39,7 +39,7 @@ Object of class "heckit5rob".
 \references{
 Heckman, J.J. (1979) Sample Selection Bias as a Specification Error. \emph{Econometrica}, 47, p. 153-161.
 
-Zhelonkin, M., Genton M.G., and Ronchetti, E. (2013) Robust Inference in Sample Selection Models. \emph{Manuscript}.
+Zhelonkin, M., Genton M.G., and Ronchetti, E. (2016) Robust Inference in Sample Selection Models. \emph{Journal of the Royal Statistical Society, Series B}, 78, p. 805-827. 
 }
 \author{
 Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti

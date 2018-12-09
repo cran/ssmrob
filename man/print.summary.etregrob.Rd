@@ -1,19 +1,19 @@
-\name{print.summary.heckit5rob}
-\alias{print.summary.heckit5rob}
+\name{print.summary.etregrob}
+\alias{print.summary.etregrob}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
- Print function for summary.heckit5rob
+ Print function for summary.etregrob
 }
 \description{
- Print a \code{\link{summary.heckit5rob}} object
+ Print a \code{\link{summary.etregrob}} object
 }
 \usage{
-\method{print}{summary.heckit5rob}(x, digits = 4, ...)
+\method{print}{summary.etregrob}(x, digits = 4, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-Object of class summary.heckit5rob returned by summary function
+Object of class summary.etregrob returned by summary function
 }
   \item{digits}{
 number of nonzero digits after comma
@@ -36,7 +36,7 @@ currently not used
 %% ~put references to the literature/web site here ~
 %}
 \author{
-Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
+Mikhail Zhelonkin
 }
 %\note{
 %%  ~~further notes~~
@@ -47,13 +47,3 @@ Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
 %\seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 %}
-%\examples{
-%##---- Should be DIRECTLY executable !! ----
-%##-- ==>  Define data, use random,
-%##--	or do  help(data=index)  for the standard data sets.
-%
-%}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-%\keyword{ ~kwd1 }
-%\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

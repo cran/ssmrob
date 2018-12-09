@@ -23,7 +23,7 @@ a list of parameters for controlling the fitting process
 }
 }
 \details{
-Function provides a robust two-stage extimator of the Heckman's selection model. The robust probit is fitted in the first stage. In the second stage the Mallows type M-estimator is used. 
+Function provides a robust two-stage estimator of the Heckman's selection model. The robust probit is fitted in the first stage. In the second stage the Mallows type M-estimator is used. 
 The values of the tuning constants and the robustness weights can be modified in \code{\link{heckitrob.control}}.
 }
 \value{
@@ -36,7 +36,7 @@ Object of class "heckitrob".
 \references{
 Heckman, J.J. (1979) Sample Selection Bias as a Specification Error. \emph{Econometrica}, 47, p. 153-161.
 
-Zhelonkin, M., Genton M.G., and Ronchetti, E. (2013) Robust Inference in Sample Selection Models. \emph{Manuscript}.
+Zhelonkin, M., Genton M.G., and Ronchetti, E. (2016) Robust Inference in Sample Selection Models. \emph{Journal of the Royal Statistical Society, Series B}, 78, p. 805-827.
 }
 \author{
 Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti

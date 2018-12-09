@@ -1,22 +1,19 @@
-\name{print.summary.heckit5rob}
-\alias{print.summary.heckit5rob}
+\name{fitted.etregrob}
+\alias{fitted.etregrob}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
- Print function for summary.heckit5rob
+Fitted values of Endogenous Treatment Model
 }
 \description{
- Print a \code{\link{summary.heckit5rob}} object
+Calculate the fitted values of the endogenous treatment model using robust fit.
 }
 \usage{
-\method{print}{summary.heckit5rob}(x, digits = 4, ...)
+\method{fitted}{etregrob}(object, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-Object of class summary.heckit5rob returned by summary function
-}
-  \item{digits}{
-number of nonzero digits after comma
+  \item{object}{
+object of class "\code{\link{etregrob}}"
 }
   \item{\dots}{
 currently not used
@@ -25,18 +22,14 @@ currently not used
 %\details{
 %%  ~~ If necessary, more details than the description above ~~
 %}
-%\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-%}
+\value{
+vector(s) of fitted values 
+}
 %\references{
 %% ~put references to the literature/web site here ~
 %}
 \author{
-Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
+Mikhail Zhelonkin
 }
 %\note{
 %%  ~~further notes~~
@@ -52,8 +45,13 @@ Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
 %##-- ==>  Define data, use random,
 %##--	or do  help(data=index)  for the standard data sets.
 %
+%## The function is currently defined as
+%function (object, ...) 
+%{
+%    return(fitted(object$stage2))
+%  }
 %}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-%\keyword{ ~kwd1 }
+%\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
 %\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
