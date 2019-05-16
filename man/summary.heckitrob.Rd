@@ -5,7 +5,7 @@
 Summarizing Robust Fits of Sample Selection Models
 }
 \description{
-The \code{summary} method summarizes robust fits of Heckman selection models.  
+Summarize robust fit of Heckman selection model.  
 }
 \usage{
 \method{summary}{heckitrob}(object, ...)

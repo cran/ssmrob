@@ -19,7 +19,7 @@ heckitrob.control(acc = 1e-04, test.acc = "coef", maxit = 50, maxitO = 50,
 positive convergence level
 }
   \item{test.acc}{
-Only "coef" is currently implemented
+only "coef" is currently implemented
 }
   \item{maxit}{
 integer giving the maximum number of iterations: selection equation
@@ -28,10 +28,10 @@ integer giving the maximum number of iterations: selection equation
 integer giving the maximum number of iterations: outcome equation
 }
   \item{weights.x1}{
-robustness weights controlling for the leverage effect in the selection equation
+vector of robustness weights controlling for the leverage effect in the selection equation
 }
   \item{weights.x2}{
-robustness weights controlling for the leverage effect in the outcome equation
+vector of robustness weights controlling for the leverage effect in the outcome equation
 }
   \item{tcc}{
 tuning constant c for Huber's psi-function for the selection stage

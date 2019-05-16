@@ -44,7 +44,7 @@ Sample of 753 observations, with 325 truncated observations.
 \references{
 Mroz , T.A. (1987) The Sensitivity of an Empirical Model of Married Women's Hours of Work to Economic and Statistical Assumptions. \emph{Econometrica}, 55, p. 765-799.
 
-Wooldridge, J.M. (2002) \emph{Econometric Analysis of Cross Section and Panel Data}, MIT Press.
+Wooldridge, J.M. (2002) \emph{Econometric Analysis of Cross Section and Panel Data}, Cambridge MA: MIT Press.
 }
 \examples{
 data(MROZ.RAW)

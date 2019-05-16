@@ -2,7 +2,7 @@
 \alias{fitted.etregrob}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Fitted values of Endogenous Treatment Model
+Fitted values of endogenous treatment model
 }
 \description{
 Calculate the fitted values of the endogenous treatment model using robust fit.
@@ -23,7 +23,7 @@ currently not used
 %%  ~~ If necessary, more details than the description above ~~
 %}
 \value{
-vector(s) of fitted values 
+vector of fitted values 
 }
 %\references{
 %% ~put references to the literature/web site here ~

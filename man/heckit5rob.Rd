@@ -8,33 +8,37 @@ Robust Heckit Fit: Switching Regressions
 Fits the switching regression model with probit selection using a robust two-stage estimator
 }
 \usage{
-heckit5rob(outcome1, outcome2, selection, control = heckitrob.control())
+heckit5rob(selection, outcome1, outcome2, control = heckitrob.control())
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
+  \item{selection}{
+formula, the selection equation
+}
   \item{outcome1}{
 formula, first outcome equation
 }
   \item{outcome2}{
 formula, second outcome equation
 }
-  \item{selection}{
-formula, the selection equation
-}
   \item{control}{
 a list of parameters for controlling the fitting process
 }
 }
 \details{
-Function provides a robust two-stage extimator of the switching regression model with probit selection. The robust probit is fitted in the first stage. In the second stage the Mallows type M-estimators are used.
+Compute robust two-stage extimates of the switching regression model with probit selection. The robust probit is fitted in the first stage. In the second stage the Mallows type M-estimators are used.
 The values of the tuning constants and the robustness weights can be modified in \code{\link{heckitrob.control}}.
 }
 \value{
 Object of class "heckit5rob".
 %%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+ \item{stage1}{object of class \code{glmrob} that contains (first stage) robust probit fit}
+  \item{stage21}{object of class \code{rlm} that contains second stage first regime robust fit}
+  \item{stage22}{object of class \code{rlm} that contains second stage second regime robust fit}  
+  \item{vcov1}{variance matrix of the second stage first regime}
+  \item{vcov2}{variance matrix of the second stage second regime}
+  \item{call}{the matched call}
+  \item{method}{method of estimation, currently only "robust two-stage" is implemented}
 }
 \references{
 Heckman, J.J. (1979) Sample Selection Bias as a Specification Error. \emph{Econometrica}, 47, p. 153-161.
@@ -54,17 +58,33 @@ Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
 \code{\link[robustbase]{glmrob}}, \code{\link[MASS]{rlm}}, \code{\link{ssmrob}}, \code{\link{heckitrob}}, \code{\link{heckitrob.control}}
 }
 \examples{
+\dontrun{
 library(mvtnorm)
+set.seed(2)
+N <- 5000
+beta1 <- c(0, 1.0, 1.0, 0.75)
+beta21 <- c(0, 1.5, 1.0, 0.5)
+beta22 <- c(1, -1.5, 1.0, 0.5)
 covm <- diag(3)
 covm[lower.tri(covm)] <- c(0.75, 0.5, 0.25)
 covm[upper.tri(covm)] <- covm[lower.tri(covm)]
-eps <- rmvnorm(1000, rep(0, 3), covm)
-x1 <- rnorm(1000)
-y1 <- x1 + eps[,1] > 0
-x21 <- rnorm(1000)
-x22 <- rnorm(1000)
-y2=ifelse(y1 > 0.5, x21 + eps[,2], x22 + eps[,3])
-summary(heckit5rob(y2 ~ x21, y2 ~ x22, y1 ~ x1))}
+eps <- rmvnorm(N, rep(0, 3), covm)
+x1 <- rmvnorm(N, mean=c(0, -1, 1), sigma=diag(c(1, 0.5, 1)))
+x21 <- x1 
+x22 <- x1
+x21[, 3] <- rnorm(N, 1, 1)
+x22[, 3] <- rnorm(N, 1, 1)
+x1beta1 <- beta1[1] + x1[, 1]*beta1[2] + x1[, 2]*beta1[3] + x1[, 3]*beta1[4]
+x21beta21 <- beta21[1] + x21[, 1]*beta21[2] + x21[, 2]*beta21[3] + x21[, 3]*beta21[4]
+x22beta22 <- beta22[1] + x22[, 1]*beta22[2] + x22[, 2]*beta22[3] + x22[, 3]*beta22[4]
+y1 <- ifelse(x1beta1 + eps[, 1] > 0, 1, 0)
+y2 <- ifelse(y1 > 0.5, x21beta21 + eps[, 2],
+x22beta22 + eps[, 3])
+srsim.fit <- ssmrob(y1 ~ x1, list(y2 ~ x21, y2 ~ x22), 
+control = heckitrob.control(weights.x1 = "hat", weights.x2 = "covMcd"))
+summary(srsim.fit)
+}
+}
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

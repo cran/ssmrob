@@ -2,7 +2,7 @@
 \alias{fitted.heckitrob}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Fitted Values of Robust Sample Selection Model
+Fitted values of robust sample selection model
 }
 \description{
 Calculate the fitted values of the sample selection model using robust fit.
@@ -20,10 +20,10 @@ currently not used
 }
 }
 \details{
-In case of truncated selection model one vector of fitted values is returned. In case of switching regression model two vectors corresponding to two regimes are returned.
+In case of truncated selection model one vector of fitted values is returned. In case of switching regression model a list, that contains two vectors corresponding to two regimes, is returned.
 }
 \value{
-vector(s) of fitted values 
+vector of fitted values or a list that contains two vectors of fitted values
 %%  If it is a LIST, use
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}

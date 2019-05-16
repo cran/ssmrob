@@ -16,6 +16,6 @@ function(object, ...)
   TAB <- list(selection=data.frame(Estimate=coef(object)$S, Std.Err=seS, t.value=signif(tvalS, digits=4), p.value=signif(pvalS, digits=3), Sign= as.vector(SignifS) ),
            outcome=data.frame(Estimate=coef(object)$O, Std.Err=seO, t.value=signif(tvalO, digits=4), p.value=signif(pvalO, digits=3), Sign= as.vector(SignifO)) )
   res <- list(call = object$call, coefficients = TAB)
-  class(res)="summary.heckitrob"
+  class(res) <- "summary.heckitrob"
   return(res)
 }

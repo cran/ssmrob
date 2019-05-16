@@ -2,7 +2,7 @@
 \alias{print.summary.heckitrob}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
- Print function for summary.heckitrob
+ Print Function for \code{summary.heckitrob}
 }
 \description{
  Print a \code{\link{summary.heckitrob}} object
@@ -13,7 +13,7 @@
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-Object of class summary.heckitrob returned by summary function
+Object of class \code{summary.heckitrob} returned by a summary function
 }
   \item{digits}{
 number of nonzero digits after comma

@@ -2,7 +2,7 @@
 \alias{x2weight.robCov}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Robustness weights computation
+Robustness Weights
 }
 \description{
 Auxiliary function. Computation of the leverage weights based on robust Mahalanobis distance. For computation of location and scatter the MVE method is used.

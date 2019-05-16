@@ -1,5 +1,5 @@
 etregrob <-
-function(outcome, selection, control=heckitrob.control())
+function(selection, outcome, control = heckitrob.control())
 {
   if (class(outcome) != "formula") {
     stop("argument 'outcome' must be a formula")
@@ -76,7 +76,7 @@ function(outcome, selection, control=heckitrob.control())
   { nr.coef <- length(result$stage1$coefficients)
   names(result$stage1$coefficients)[1:nr.coef] <- substring(names(result$stage1$coefficients)[1:nr.coef], 3)
   }
-  result$vcov=etreg2steprobVcov(YS, YO, model.matrix(result$stage1), model.matrix(result$stage2), result$stage1, result$stage2$coeff, result$stage2$s, x2weight, control$t.c)
+  result$vcov <- etreg2steprobVcov(YS, YO, model.matrix(result$stage1), model.matrix(result$stage2), result$stage1, result$stage2$coeff, result$stage2$s, x2weight, control$t.c)
   result$method <- "robust two-stage"
   class(result) <- c("etregrob", class(result))
   return(result)

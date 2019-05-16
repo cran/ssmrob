@@ -1,5 +1,5 @@
 ssmrob <-
-function(outcome, selection, control=heckitrob.control())
+function(selection, outcome, control=heckitrob.control())
 {
   type <- 0
   if (!inherits(selection, "formula")) {
@@ -36,12 +36,12 @@ function(outcome, selection, control=heckitrob.control())
     }
     else stop("argument 'outcome' must contain 1 or 2 components")
   }
-  if(type==2)
+  if(type == 2)
   {
-    return(heckitrob(outcome, selection, control=control))
+    return(heckitrob(selection, outcome, control=control))
   }
-  else if(type==5)
+  else if(type == 5)
   {
-    return(heckit5rob(outcome[[1]], outcome[[2]], selection, control=control))
+    return(heckit5rob(selection, outcome[[1]], outcome[[2]], control=control))
   }
 }

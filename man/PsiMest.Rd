@@ -16,7 +16,7 @@ PsiMest(x, y, beta, sigma, t.c, weight)
 vector of exogenous variables
 }
   \item{y}{
-endogenous variable
+scalar endogenous variable
 }
   \item{beta}{
 parameter vector
@@ -25,17 +25,17 @@ parameter vector
 std.error
 }
   \item{t.c}{
-tuning constant of Huber Psi function
+tuning constant of Huber Psi-function
 }
   \item{weight}{
-vector of weights on the exogenous variables
+scalar weight on the exogenous variables
 }
 }
 \details{
 Can be used to compute the influence function of the estimator. Also can be used to approximate the bias of the estimator.
 }
 \value{
-returns the vector of scores.
+score of the Psi-function
 }
 \references{
 Hampel, Ronchetti, Rousseeuw, Stahel (1986). Robust Statistics: The Approach Based on Influence Functions. New York: Wiley.

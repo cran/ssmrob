@@ -2,7 +2,7 @@
 \alias{residuals.etregrob}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Residuals of Robust Endogenous Treatment Model
+Residuals of Robust Endogenous Treatment Model Fit
 }
 \description{
 Calculate the residuals of theendogenous treatment model using robust fit.
@@ -23,7 +23,7 @@ currently not used
 %%  ~~ If necessary, more details than the description above ~~
 %}
 \value{
-The numeric vector of residuals.
+numeric vector of residuals.
 }
 %\references{
 %% ~put references to the literature/web site here ~

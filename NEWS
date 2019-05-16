@@ -1,0 +1,18 @@
+Changes in ssmrob version 0.6
+
+    + Order of arguments in functions ssmrob, heckitrob, heckit5rob, etregrob was  
+    changed. The selection formula is first, the outcome formula(s) is second.
+
+
+Changes in robmed version 0.5
+
+    + Number of digits after comma in print functions reduced to 4.
+    
+    + Chi-square probability for covariate weights is 0.95, it was 0.9.
+    
+    + Splitted weight calculation for design space is introduced (see Zhelonkin, 		
+    Genton, Ronchetti 2016, p.814).
+    
+    + etregrob function is added, robust estimation for Endogenous Treatment Model.
+
+

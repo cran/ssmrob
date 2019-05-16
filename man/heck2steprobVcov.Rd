@@ -5,7 +5,7 @@
 Variance Covariance Matrix
 }
 \description{
-Computation of the asymptotic variance matrix of the robust Heckman's two-stage estimator for truncated selection model, classified as tobit-2 by Amemiya (1984).
+Computation of the asymptotic variance matrix of the robust Heckman's two-stage estimator for truncated selection model.
 }
 \usage{
 heck2steprobVcov(y1vec, y2vec, x1Matr, x2Matr, eststage1, eststage2, 
@@ -35,7 +35,7 @@ vector of the coefficients of the outcome stage
 the robust scale estimate of the second stage regression
 }
   \item{weights}{
-robustness weights 
+vector of robustness weights 
 }
   \item{t.c}{
 tuning constant of the second stage
@@ -53,8 +53,6 @@ Variance covariance matrix of the second stage estimator
 %% ...
 }
 \references{
-Amemiya, T. (1984) Tobit Models: a Survey. \emph{Journal of Econometrics}, 24, p. 3-61.
-
 Heckman, J.J. (1979) Sample Selection Bias as a Specification Error. \emph{Econometrica}, 47, p. 153-161.
 
 Huber, P.J. (1967) The Behavior of Maximum Likelihood Estimates under Nonstandard Conditions. \emph{ Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability; L.M. LeCam, J. Neyman (Eds.), Berkeley: University of California Press}, p. 221-233.
@@ -70,9 +68,9 @@ Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-%\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-%}
+\seealso{
+\code{\link[robustbase]{glmrob}}
+}
 %\examples{
 %##---- Should be DIRECTLY executable !! ----
 %##-- ==>  Define data, use random,

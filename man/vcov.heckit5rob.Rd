@@ -5,7 +5,7 @@
 Extract Asymptotic Variance Covariance Matrix
 }
 \description{
-Function extracts the variance covariance matrix of the robust sample selection model
+Extract the variance covariance matrix of the robust sample selection model fit
 }
 \usage{
 \method{vcov}{heckit5rob}(object, ...)

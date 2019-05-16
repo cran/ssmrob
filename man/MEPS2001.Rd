@@ -42,7 +42,7 @@ Sample of 3328 observations, with 526 zero expenditures.
 2001 Medical Expenditure Panel Survey by the Agency for Healthcare Research and Quality.
 }
 \references{
-Cameron, C.A. and Trivedi, P.K. (2009) \emph{Microeconometrics Using Stata}, Stata Press.
+Cameron, C.A. and Trivedi, P.K. (2009) \emph{Microeconometrics Using Stata}, College Station, TX: Stata Press.
 }
 \examples{
 data(MEPS2001)

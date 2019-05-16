@@ -2,7 +2,7 @@
 \alias{print.summary.etregrob}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
- Print function for summary.etregrob
+ Print Function for \code{summary.etregrob}
 }
 \description{
  Print a \code{\link{summary.etregrob}} object
@@ -13,7 +13,7 @@
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-Object of class summary.etregrob returned by summary function
+Object of class \code{summary.etregrob} returned by a summary function
 }
   \item{digits}{
 number of nonzero digits after comma

@@ -2,7 +2,7 @@
 \alias{coef.etregrob}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Extract Coefficients from Robust Endogenous Treatment Model
+Extract Coefficients from Robust Endogenous Treatment Model Fit
 }
 \description{
 Returns the coefficients of the robust two-stage estimator for endogentous treatment model.

@@ -34,7 +34,7 @@ vector of the coefficients of the outcome stage
 the robust scale estimate of the second stage regression
 }
   \item{weights}{
-robustness weights 
+vector of robustness weights 
 }
   \item{t.c}{
 tuning constant of the second stage

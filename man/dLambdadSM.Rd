@@ -23,14 +23,14 @@ vector of parameters
 This function is necessary for computation of the asymptotic variance. In case of switching regressions the inverse Mills ratio term is different, and its derivative is computed in function \code{dLambdadSM5}. It can be also used to compute the influence function of the two-stage estimator.
 }
 \value{
-returns the gradient of the inverse Mills ratio
+The gradient of the inverse Mills ratio is returned as a vector
 %%  If it is a LIST, use
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
 }
 \references{
-Zhelonkin, M., Genton M.G., and Ronchetti, E. (2012) Robust Inference in Sample Selection Models. \emph{Manuscript}.
+Zhelonkin, M., Genton M.G., and Ronchetti, E. (2016) Robust Inference in Sample Selection Models. \emph{Journal of the Royal Statistical Society, Series B}, 78, p. 805-827.
 }
 \author{
 Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti

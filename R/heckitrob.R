@@ -1,5 +1,5 @@
 heckitrob <-
-function(outcome, selection, control = heckitrob.control())
+function(selection, outcome, control = heckitrob.control())
 {
   if (class(outcome) != "formula") {
     stop("argument 'outcome' must be a formula")
@@ -41,13 +41,13 @@ function(outcome, selection, control = heckitrob.control())
                           method="Mqle", weights.on.x = control$weights.x1,
                           control = glmrobMqle.control(acc = control$acc, 
                                     maxit = control$maxit, tcc = control$tcc))
-  imrData=invMillsRatio(result$stage1)
-  xMat=cbind(XO,imrData$IMR1)
-  if(control$weights.x2 == "none") x2weight = rep(1, length(YS)) else
-    if(control$weights.x2 == "hat") x2weight = sqrt(1 - hat(xMat)) else
-      if(control$weights.x2 == "robCov") x2weight = x2weight.robCov(xMat) else
-        if(control$weights.x2 == "covMcd") x2weight = x2weight.covMcd(xMat)
-  result$stage2 <- rlm(YO ~ XO + imrData$IMR1 - 1, method="M", psi = psi.huber, k = control$t.c, weights = x2weight, maxit = control$maxitO, subset = YS==1)
+  imrData <- invMillsRatio(result$stage1)
+  xMat <- cbind(XO,imrData$IMR1)
+  if(control$weights.x2 == "none") x2weight <- rep(1, length(YS)) else
+    if(control$weights.x2 == "hat") x2weight <- sqrt(1 - hat(xMat)) else
+      if(control$weights.x2 == "robCov") x2weight <- x2weight.robCov(xMat) else
+        if(control$weights.x2 == "covMcd") x2weight <- x2weight.covMcd(xMat)
+  result$stage2 <- rlm(YO ~ XO + imrData$IMR1 - 1, method = "M", psi = psi.huber, k = control$t.c, weights = x2weight, maxit = control$maxitO, subset = YS==1)
   xMat <- model.matrix(result$stage2)
   x2weight <- subset(x2weight, YS==1)
   result$vcov <- heck2steprobVcov(YS[YS==1], YO[YS==1], model.matrix(result$stage1)[YS==1,], xMat, result$stage1, result$stage2$coeff, result$stage2$s, x2weight, control$t.c)

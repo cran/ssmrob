@@ -2,7 +2,7 @@
 \alias{coef.heckitrob}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Extract Coefficients from Robust Sample Selection Model
+Extract Coefficients from Robust Sample Selection Model Fit
 }
 \description{
 Returns the coefficients of the robust two-stage estimator for simple Heckman's selection model or switching regression model.

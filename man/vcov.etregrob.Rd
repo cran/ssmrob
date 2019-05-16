@@ -5,7 +5,7 @@
 Extract Asymptotic Variance Covariance Matrix
 }
 \description{
-Function extracts the variance covariance matrix of the robust endogenous treatment model
+Extracts the variance covariance matrix of the robust endogenous treatment model fit
 }
 \usage{
 \method{vcov}{etregrob}(object, ...)

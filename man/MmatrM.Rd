@@ -22,13 +22,13 @@ vector of dependent variables
 vector of parameters
 }
   \item{sigma}{
-the robust scale estimate
+robust scale estimate
 }
   \item{t.c}{
 tuning constant c for Huber's psi-function
 }
   \item{weights}{
-robustness weights controlling for the leverage effect
+vector of robustness weights controlling for the leverage effects
 }
 }
 

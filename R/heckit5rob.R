@@ -1,5 +1,5 @@
 heckit5rob <-
-function(outcome1, outcome2, selection, control=heckitrob.control())
+function(selection, outcome1, outcome2, control=heckitrob.control())
 {
   if (class(outcome1) != "formula") {
     stop("argument 'outcome1' must be a formula")
@@ -10,7 +10,7 @@ function(outcome1, outcome2, selection, control=heckitrob.control())
   else if (length(selection) != 3) {
     stop("argument 'selection' must be a 2-sided formula")
   }  
-  result=list()
+  result <- list()
     result$call <- match.call()
     mf <- match.call(expand.dots = FALSE)
     m <- match(c("selection", "data", "subset", "weights", "offset"), 
@@ -57,11 +57,11 @@ function(outcome1, outcome2, selection, control=heckitrob.control())
                           method="Mqle", weights.on.x = control$weights.x1, 
                           control = glmrobMqle.control(acc = control$acc, 
                                     maxit=control$maxit, tcc = control$tcc))
-  imrData=invMillsRatio(result$stage1)
-  IMR1=imrData$IMR1
-  IMR2=-imrData$IMR0
-  xMat1=cbind(XO1, IMR1)
-  xMat2=cbind(XO2, IMR2)
+  imrData <- invMillsRatio(result$stage1)
+  IMR1 <- imrData$IMR1
+  IMR2 <- -imrData$IMR0
+  xMat1 <- cbind(XO1, IMR1)
+  xMat2 <- cbind(XO2, IMR2)
   if(control$weights.x2 == "none") x2weight1 <- rep(1, length(YS)) else
     if(control$weights.x2 == "hat") x2weight1 <- sqrt(1 - hat(xMat1)) else
       if(control$weights.x2 == "robCov") x2weight1 <- x2weight.robCov(xMat1) else
@@ -79,11 +79,11 @@ function(outcome1, outcome2, selection, control=heckitrob.control())
   result$vcov1 <- heck2steprobVcov(YS[YS==1], YO1[YS==1], model.matrix(result$stage1)[YS==1,], xMat1, result$stage1, result$stage21$coeff, result$stage21$s, x2weight1, control$t.c)
   result$vcov2 <- heck5twosteprobVcov(YS[YS==0], YO2[YS==0], model.matrix(result$stage1)[YS==0,], xMat2, result$stage1, result$stage22$coeff, result$stage22$s, x2weight2, control$t.c)
   nr.coef <- length(result$stage21$coefficients)
-  names(result$stage21$coefficients)[1:(nr.coef-1)] <- substring(names(result$stage21$coefficients)[1:(nr.coef-1)], 3)
-  names(result$stage21$coefficients)[nr.coef] <- substring(names(result$stage21$coefficients)[nr.coef], 9)
+  names(result$stage21$coefficients)[1:(nr.coef-1)] <- substring(names(result$stage21$coefficients)[1:(nr.coef-1)], 4)
+  names(result$stage21$coefficients)[nr.coef] <- substring(names(result$stage21$coefficients)[nr.coef], 1)
   nr.coef <- length(result$stage22$coefficients)
-  names(result$stage22$coefficients)[1:(nr.coef-1)] <- substring(names(result$stage22$coefficients)[1:(nr.coef-1)], 3)
-  names(result$stage22$coefficients)[nr.coef] <- substring(names(result$stage22$coefficients)[nr.coef], 9)
+  names(result$stage22$coefficients)[1:(nr.coef-1)] <- substring(names(result$stage22$coefficients)[1:(nr.coef-1)], 4)
+  names(result$stage22$coefficients)[nr.coef] <- substring(names(result$stage22$coefficients)[nr.coef], 1)
   if(names(result$stage1$coefficients)[1]=="(Intercept)")
   { nr.coef <- length(result$stage1$coefficients)
   names(result$stage1$coefficients)[2:nr.coef] <- substring(names(result$stage1$coefficients)[2:nr.coef], 3)

@@ -5,7 +5,7 @@
 Summarizing Robust Fits of Endogenous Treatment Models
 }
 \description{
-The \code{summary} method summarizes robust fits of endogenous treatment models.
+Summarizes robust fit of endogenous treatment models.
 }
 \usage{
 \method{summary}{etregrob}(object, ...)
