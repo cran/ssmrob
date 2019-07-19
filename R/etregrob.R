@@ -42,6 +42,7 @@ function(selection, outcome, control = heckitrob.control())
                           maxit = control$maxit, tcc = control$tcc))
   imrData <- invMillsRatio(result$stage1)
   CIMR <- YS * imrData$IMR1 + (1 - YS) * imrData$IMR0*(-1)
+  CIMRdelta <- YS * imrData$delta1 + (1 - YS) * imrData$delta0
   xMat <- cbind(XO, CIMR)
   xMat1 <- xMat[YS == 1,]
   xMat0 <- xMat[YS == 0,]
@@ -66,6 +67,7 @@ function(selection, outcome, control = heckitrob.control())
           x2weight[ord[(n + 1):length(YS)]] <- x2weight0 }
   result$stage2 <- rlm(YO ~ XO + YS + CIMR - 1, method="M", psi = psi.huber,
                     k=control$t.c, weights = x2weight, maxit = control$maxitO)
+  result$CIMR <- CIMR
   xMat=model.matrix(result$stage2)
   nr.coef <- length(result$stage2$coefficients)
   names(result$stage2$coefficients)[1:(nr.coef-2)] <- substring(names(result$stage2$coefficients)[1:(nr.coef-2)], 3)
@@ -77,6 +79,10 @@ function(selection, outcome, control = heckitrob.control())
   names(result$stage1$coefficients)[1:nr.coef] <- substring(names(result$stage1$coefficients)[1:nr.coef], 3)
   }
   result$vcov <- etreg2steprobVcov(YS, YO, model.matrix(result$stage1), model.matrix(result$stage2), result$stage1, result$stage2$coeff, result$stage2$s, x2weight, control$t.c)
+  result$coefficients <- c(result$stage1$coefficients, result$stage2$coefficients)
+  result$sigma <- drop(sqrt(crossprod(result$stage2$residuals)/length(YS) + mean(drop(CIMRdelta)) * result$stage2$coefficients["CIMR"]^2))
+  result$converged <- result$stage1$converged & result$stage2$converged
+  result$iterations <- list(iter1 = result$stage1$iter, iter2 = length(result$stage2$conv))
   result$method <- "robust two-stage"
   class(result) <- c("etregrob", class(result))
   return(result)

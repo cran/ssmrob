@@ -72,6 +72,8 @@ function(selection, outcome1, outcome2, control=heckitrob.control())
         if(control$weights.x2 == "covMcd") x2weight2 <- x2weight.covMcd(xMat2)
   result$stage21 <- rlm(YO1 ~ XO1 + IMR1 - 1, method="M", psi = psi.huber, k=control$t.c, weights=x2weight1, maxit=control$maxitO, subset=YS==1)
   result$stage22 <- rlm(YO2 ~ XO2 + IMR2 - 1, method="M", psi = psi.huber, k=control$t.c, weights=x2weight2, maxit=control$maxitO, subset=YS==0)
+  result$IMR1 <- IMR1
+  result$IMR2 <- IMR2
   xMat1 <- model.matrix(result$stage21)
   xMat2 <- model.matrix(result$stage22)
   x2weight1 <- subset(x2weight1, YS==1)
@@ -91,6 +93,11 @@ function(selection, outcome1, outcome2, control=heckitrob.control())
   { nr.coef <- length(result$stage1$coefficients)
   names(result$stage1$coefficients)[1:nr.coef] <- substring(names(result$stage1$coefficients)[1:nr.coef], 3)
   }
+  result$coefficients <- c(result$stage1$coefficients, result$stage21$coefficients, result$stage22$coefficients)
+  result$sigma1 <- drop(sqrt(crossprod(result$stage21$residuals)/sum(YS) + mean(drop(imrData$delta1)[YS == 1]) * result$stage21$coefficients["IMR1"]^2))
+  result$sigma2 <- drop(sqrt(crossprod(result$stage22$residuals)/sum(YS==0) + mean(drop(imrData$delta0)[YS == 0]) * result$stage22$coefficients["IMR2"]^2))
+  result$converged <- result$stage1$converged & result$stage21$converged & result$stage22$converged
+  result$iterations <- list(iter1 = result$stage1$iter, iter21 = length(result$stage21$conv), iter22 = length(result$stage22$conv))
   result$method <- "robust two-stage"
   class(result) <- c("heckit5rob", class(result))
   return(result)

@@ -13,8 +13,8 @@ models with sample selectivity.
 \tabular{ll}{
 Package: \tab ssmrob \cr
 Type: \tab Package \cr
-Version: \tab 0.6 \cr
-Date: \tab 2019-04-30 \cr
+Version: \tab 0.7 \cr
+Date: \tab 2019-07-16 \cr
 License: \tab GPL-2 \cr
 }
 %~~ An overview of how to use the package, including the most important functions ~~

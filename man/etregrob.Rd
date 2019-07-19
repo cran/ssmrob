@@ -28,11 +28,16 @@ The values of the tuning constants and the robustness weights can be modified in
 }
 \value{
 Object of class "etregrob".
- \item{stage1}{object of class \code{glmrob} that contains robust probit fit}
-  \item{stage2}{object of class \code{rlm} that contains second stage robust fit}
+  \item{coefficients}{a named vector of coefficients}
+  \item{stage1}{object of class \code{glmrob} that contains robust probit fit}
+  \item{stage2}{object of class \code{rlm} that contains second stage robust fit. Note that the standard errors in this object are biased, since they are not corrected for the uncertainty in the first estimation step. Use \code{vcov} below}
   \item{vcov}{variance matrix of the second stage}
+  \item{sigma}{the standard error of the error term of the outcome equation}
+  \item{CIMR}{inverse Mills ratio for the complete sample}
   \item{call}{the matched call}
   \item{method}{method of estimation, currently only "robust two-stage" is implemented}
+  \item{converged}{logical. Did all the estimators converge?}
+  \item{iterations}{list containing the numbers of iterations}
 }
 \references{
 Maddala G.S. (1983) Limited-Dependent and Qualitative Variables in Econometrics. Cambridge: Cambridge University Press.
@@ -52,7 +57,7 @@ The treatment variable is automatically included in the formula for the second e
 \examples{
 library(mvtnorm)
 set.seed(2)
-N <- 5000
+N <- 3000
 beta1 <- c(1.0, 1.0, 0.75)
 beta2 <- c(1.5, 1.0, 0.5)
 alpha <- 1.25
@@ -64,9 +69,8 @@ x1beta1 <- x1[, 1]*beta1[1] + x1[, 2]*beta1[2] + x1[, 3]*beta1[3]
 x2beta2 <- x2[, 1]*beta2[1] + x2[, 2]*beta2[2] + x2[, 3]*beta2[3]
 y1 <- ifelse(x1beta1 + eps[, 1] > 0, 1, 0)
 y2 <- x2beta2 + alpha*y1 + eps[,2]
-etmsim.fit <- etregrob(y1 ~ x1, y2 ~ x2, 
-                	   control = heckitrob.control(weights.x1 = "hat",
-                      		                       weights.x2 = "covMcd"))
+etm.ctrl <- heckitrob.control(weights.x1 = "hat", weights.x2 = "covMcd")
+etmsim.fit <- etregrob(y1 ~ x1, y2 ~ x2, control = etm.ctrl)
 summary(etmsim.fit)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

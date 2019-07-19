@@ -1,3 +1,11 @@
+Changes in ssmrob version 0.7
+
+	+ Generic functions nobs and model.matrix were added.
+	
+	+ print and summary outputs were adjusted to mimic more standard R model printing outputs
+	
+	+ fitted model objects were extended, see documentation
+
 Changes in ssmrob version 0.6
 
     + Order of arguments in functions ssmrob, heckitrob, heckit5rob, etregrob was  

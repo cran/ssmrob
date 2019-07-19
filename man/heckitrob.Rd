@@ -29,12 +29,16 @@ The values of the tuning constants and the robustness weights can be modified in
 \value{
 Object of class "heckitrob".
 %%  If it is a LIST, use
+  \item{coefficients}{a named vector of coefficients}
   \item{stage1}{object of class \code{glmrob} that contains robust probit fit}
-  \item{stage2}{object of class \code{rlm} that contains second stage robust fit}
+  \item{stage2}{object of class \code{rlm} that contains second stage robust fit. Note that the standard errors in this object are biased, since they are not corrected for the uncertainty in the first estimation step. Use \code{vcov} below}
   \item{vcov}{variance matrix of the second stage}
+  \item{sigma}{the standard error of the error term of the outcome equation}
+  \item{IMR1}{inverse Mills ratio for the case when y_1=1}
   \item{call}{the matched call}
   \item{method}{method of estimation, currently only "robust two-stage" is implemented}
-%%  \item{comp2 }{Description of 'comp2'}
+  \item{converged}{logical. Did all the estimators converge?}
+  \item{iterations}{list containing the numbers of iterations}
 %% ...
 }
 \references{

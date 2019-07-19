@@ -48,20 +48,27 @@ function(selection, outcome, control = heckitrob.control())
       if(control$weights.x2 == "robCov") x2weight <- x2weight.robCov(xMat) else
         if(control$weights.x2 == "covMcd") x2weight <- x2weight.covMcd(xMat)
   result$stage2 <- rlm(YO ~ XO + imrData$IMR1 - 1, method = "M", psi = psi.huber, k = control$t.c, weights = x2weight, maxit = control$maxitO, subset = YS==1)
+  result$IMR1 <- imrData$IMR1
   xMat <- model.matrix(result$stage2)
   x2weight <- subset(x2weight, YS==1)
   result$vcov <- heck2steprobVcov(YS[YS==1], YO[YS==1], model.matrix(result$stage1)[YS==1,], xMat, result$stage1, result$stage2$coeff, result$stage2$s, x2weight, control$t.c)
   result$method <- "robust two-stage"
+  result$converged <- result$stage1$converged & result$stage2$converged
+  result$iterations <- list(iter1 = result$stage1$iter, iter2 = length(result$stage2$conv))
   nr.coef <- length(result$stage2$coefficients)
   names(result$stage2$coefficients)[1:(nr.coef-1)] <- substring(names(result$stage2$coefficients)[1:(nr.coef-1)], 3)
   names(result$stage2$coefficients)[nr.coef] <- substring(names(result$stage2$coefficients)[nr.coef], 9)
   if(names(result$stage1$coefficients)[1]=="(Intercept)")
-  { nr.coef <- length(result$stage1$coefficients)
-  names(result$stage1$coefficients)[2:nr.coef] <- substring(names(result$stage1$coefficients)[2:nr.coef], 3)
+  { 
+    nr.coef <- length(result$stage1$coefficients)
+    names(result$stage1$coefficients)[2:nr.coef] <- substring(names(result$stage1$coefficients)[2:nr.coef], 3)
   } else
-  { nr.coef <- length(result$stage1$coefficients)
-  names(result$stage1$coefficients)[1:nr.coef] <- substring(names(result$stage1$coefficients)[1:nr.coef], 3)
+  { 
+    nr.coef <- length(result$stage1$coefficients)
+    names(result$stage1$coefficients)[1:nr.coef] <- substring(names(result$stage1$coefficients)[1:nr.coef], 3)
   }
+  result$coefficients <- c(result$stage1$coefficients, result$stage2$coefficients)
+  result$sigma <- drop(sqrt(crossprod(result$stage2$residuals)/sum(YS) + mean(drop(imrData$delta1)[YS == 1]) * result$stage2$coefficients["IMR1"]^2))
   class(result) <- c("heckitrob", class(result))
   return(result)
 }

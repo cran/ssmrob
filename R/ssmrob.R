@@ -36,12 +36,17 @@ function(selection, outcome, control=heckitrob.control())
     }
     else stop("argument 'outcome' must contain 1 or 2 components")
   }
+  cl <- match.call()
   if(type == 2)
   {
-    return(heckitrob(selection, outcome, control=control))
+    result <- heckitrob(selection, outcome, control = control)
+    result$call <- cl
+    return(result)
   }
   else if(type == 5)
   {
-    return(heckit5rob(selection, outcome[[1]], outcome[[2]], control=control))
+    result <- heckit5rob(selection, outcome[[1]], outcome[[2]], control = control)
+    result$call <- cl
+    return(result)
   }
 }

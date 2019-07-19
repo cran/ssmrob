@@ -32,13 +32,20 @@ The values of the tuning constants and the robustness weights can be modified in
 \value{
 Object of class "heckit5rob".
 %%  If it is a LIST, use
- \item{stage1}{object of class \code{glmrob} that contains (first stage) robust probit fit}
-  \item{stage21}{object of class \code{rlm} that contains second stage first regime robust fit}
-  \item{stage22}{object of class \code{rlm} that contains second stage second regime robust fit}  
+  \item{coefficients}{a named vector of coefficients}
+  \item{stage1}{object of class \code{glmrob} that contains (first stage) robust probit fit}
+  \item{stage21}{object of class \code{rlm} that contains second stage first regime robust fit. Note that the standard errors in this object are biased, since they are not corrected for the uncertainty in the first estimation step. Use \code{vcov1} below}
+  \item{stage22}{object of class \code{rlm} that contains second stage second regime robust fit. Note that the standard errors in this object are biased, since they are not corrected for the uncertainty in the first estimation step. Use \code{vcov2} below}  
   \item{vcov1}{variance matrix of the second stage first regime}
   \item{vcov2}{variance matrix of the second stage second regime}
+  \item{sigma1}{the standard error of the error term of the outcome equation when y_1=1}
+  \item{sigma2}{the standard error of the error term of the outcome equation when y_1=0}
+  \item{IMR1}{inverse Mills ratio for the case when y_1=1}
+  \item{IMR2}{inverse Mills ratio for the case when y_1=0}
   \item{call}{the matched call}
   \item{method}{method of estimation, currently only "robust two-stage" is implemented}
+  \item{converged}{logical. Did all the estimators converge?}
+  \item{iterations}{list containing the numbers of iterations}
 }
 \references{
 Heckman, J.J. (1979) Sample Selection Bias as a Specification Error. \emph{Econometrica}, 47, p. 153-161.
