@@ -8,7 +8,7 @@ Robust Sample Selection Model
 Compute robust two-stage estimates of truncated selection model (Tobit-2) and switching regression model (Tobit-5).
 }
 \usage{
-ssmrob(selection, outcome, control = heckitrob.control())
+ssmrob(selection, outcome, data, control = heckitrob.control())
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -17,6 +17,9 @@ formula, the selection equation
 }
   \item{outcome}{
 formula(s), the outcome equation(s)
+}
+  \item{data}{
+an optional data frame containing the variables in the model. If not found in data, the variables are taken from \code{environment(formula)}, typically the environment from which \code{ssmrob} is called.
 }
   \item{control}{
 a list of parameters for controlling the fitting process
@@ -33,7 +36,7 @@ Amemiya, T. (1984) Tobit Models: a Survey. \emph{Journal of Econometrics}, 24, p
 
 Heckman, J.J. (1979) Sample Selection Bias as a Specification Error. \emph{Econometrica}, 47, p. 153-161.
 
-Zhelonkin, M., Genton M.G., and Ronchetti, E. (2016) Robust Inference in Sample Selection Models. \emph{Journal of the Royal Statistical Society, Series B}, 78, p. 805-827.
+Zhelonkin, M., Genton M.G., and Ronchetti, E. (2016) Robust Inference in Sample Selection Models. \emph{Journal of the Royal Statistical Society, Series B}, 78, p. 805-827. \doi{10.1111/rssb.12136}
 }
 \author{
 Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
@@ -51,10 +54,9 @@ Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
 # sample selection model (Tobit-2)
 # Zhelonkin, Genton, Ronchetti (2016): page 823
 data(MEPS2001)
-attach(MEPS2001)
 selectEq <- dambexp ~ age + female + educ + blhisp + totchr + ins
 outcomeEq <- lnambx ~ age + female + educ + blhisp + totchr + ins
-meps.fit <- ssmrob(selectEq, outcomeEq, control = heckitrob.control(tcc = 3.2))
+meps.fit <- ssmrob(selectEq, outcomeEq, data = MEPS2001, control = heckitrob.control(tcc = 3.2))
 summary(meps.fit)
 
 # switching regressions example (Tobit-5)

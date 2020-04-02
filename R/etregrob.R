@@ -1,5 +1,5 @@
 etregrob <-
-function(selection, outcome, control = heckitrob.control())
+function(selection, outcome, data, control = heckitrob.control())
 {
   if (class(outcome) != "formula") {
     stop("argument 'outcome' must be a formula")

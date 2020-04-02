@@ -8,7 +8,7 @@ Robust Heckit Fit
 Fits the sample selection model using a robust two-stage estimator
 }
 \usage{
-heckitrob(selection, outcome, control = heckitrob.control())
+heckitrob(selection, outcome, data, control = heckitrob.control())
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -17,6 +17,9 @@ formula, the selection equation
 }
   \item{outcome}{
 formula, the outcome equation
+}
+  \item{data}{
+an optional data frame containing the variables in the model. If not found in data, the variables are taken from \code{environment(formula)}, typically the environment from which \code{heckitrob} is called.
 }
   \item{control}{
 a list of parameters for controlling the fitting process
@@ -46,7 +49,7 @@ Cameron, C.A., Trivedi, P.K. (2009) Microeconometrics Using Stata. College Stati
 
 Heckman, J.J. (1979) Sample Selection Bias as a Specification Error. \emph{Econometrica}, 47, p. 153-161.
 
-Zhelonkin, M., Genton M.G., and Ronchetti, E. (2016) Robust Inference in Sample Selection Models. \emph{Journal of the Royal Statistical Society, Series B}, 78, p. 805-827.
+Zhelonkin, M., Genton M.G., and Ronchetti, E. (2016) Robust Inference in Sample Selection Models. \emph{Journal of the Royal Statistical Society, Series B}, 78, p. 805-827. \doi{10.1111/rssb.12136}
 }
 \author{
 Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
@@ -63,10 +66,9 @@ Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti
 \examples{
 # Zhelonkin, Genton, Ronchetti (2016): page 823
 data(MEPS2001)
-attach(MEPS2001)
 selectEq <- dambexp ~ age + female + educ + blhisp + totchr + ins
 outcomeEq <- lnambx ~ age + female + educ + blhisp + totchr + ins
-meps.fit <- ssmrob(selectEq, outcomeEq, control = heckitrob.control(tcc = 3.2))
+meps.fit <- ssmrob(selectEq, outcomeEq, data = MEPS2001, control = heckitrob.control(tcc = 3.2))
 summary(meps.fit)
 }
 

@@ -1,5 +1,5 @@
 ssmrob <-
-function(selection, outcome, control=heckitrob.control())
+function(selection, outcome, data, control=heckitrob.control())
 {
   type <- 0
   if (!inherits(selection, "formula")) {
@@ -39,13 +39,13 @@ function(selection, outcome, control=heckitrob.control())
   cl <- match.call()
   if(type == 2)
   {
-    result <- heckitrob(selection, outcome, control = control)
+    result <- heckitrob(selection, outcome, data = data, control = control)
     result$call <- cl
     return(result)
   }
   else if(type == 5)
   {
-    result <- heckit5rob(selection, outcome[[1]], outcome[[2]], control = control)
+    result <- heckit5rob(selection, outcome[[1]], outcome[[2]], data = data, control = control)
     result$call <- cl
     return(result)
   }

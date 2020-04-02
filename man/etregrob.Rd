@@ -8,7 +8,7 @@ Robust Fit of Endogenous Treatment Model
 Fits the endogenous treatment model using a robust two-stage estimator
 }
 \usage{
-etregrob(selection, outcome, control = heckitrob.control())
+etregrob(selection, outcome, data, control = heckitrob.control())
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -17,6 +17,9 @@ formula, the selection equation
 }
   \item{outcome}{
 formula, the outcome equation
+}
+  \item{data}{
+an optional data frame containing the variables in the model. If not found in data, the variables are taken from \code{environment(formula)}, typically the environment from which \code{etregrob} is called.
 }
   \item{control}{
 a list of parameters for controlling the fitting process. The same list as for sample selection model

@@ -1,5 +1,5 @@
 heckit5rob <-
-function(selection, outcome1, outcome2, control=heckitrob.control())
+function(selection, outcome1, outcome2, data, control=heckitrob.control())
 {
   if (class(outcome1) != "formula") {
     stop("argument 'outcome1' must be a formula")

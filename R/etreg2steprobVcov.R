@@ -30,10 +30,9 @@ function(y1vec, y2vec, x1Matr, x2Matr, eststage1, eststage2, eststage2sigma, wei
       s2=s2+(x2Matr[i,dim(x2Matr)[2]]*eststage2[dim(x2Matr)[2]])*weights[i]*((y1vec[i])*c(dLambdadSM(x1Matr[i,], eststage1$coeff)) - (1-y1vec[i])*c(dLambdadSM5(x1Matr[i,],eststage1$coeff)))/eststage2sigma*x1Matr[i,]
     }
   }
-  xdx=rbind(s1,s2)
-  term2=xdx%*%vcov(eststage1)%*%t(xdx)  
-  
-  result=(solve(MmatrM(x2Matr,y2vec,eststage2,eststage2sigma,t.c,weights))%*%   # asymptotic variance for Heckman-M-estimator
-            (sumheck+term2)%*%solve(MmatrM(x2Matr,y2vec,eststage2,eststage2sigma,t.c,weights)))
+  xdx <- rbind(s1,s2)
+  term2 <- xdx%*%vcov(eststage1)%*%t(xdx)  
+  M2inv <- solve(MmatrM(x2Matr,y2vec,eststage2,eststage2sigma,t.c,weights))
+  result <- M2inv%*%(sumheck+term2)%*%M2inv   # asymptotic variance 
   return(result)
 }

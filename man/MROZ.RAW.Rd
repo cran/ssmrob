@@ -11,28 +11,28 @@ Sample of 753 observations, with 325 truncated observations.
 \format{
   A data frame with 753 observations on the following 22 variables.
   \describe{
-    \item{\code{inlf}}{in labor force (binary) }
-    \item{\code{hours}}{hours worked}
-    \item{\code{kidslt6}}{number of young children}
-    \item{\code{kidsge6}}{number of children greater than 6 years of age}
-    \item{\code{age}}{age}
-    \item{\code{educ}}{education status}
-    \item{\code{wage}}{wage}
-    \item{\code{repwage}}{a numeric vector}
-    \item{\code{hushrs}}{a numeric vector}
-    \item{\code{husage}}{husband's age}
-    \item{\code{huseduc}}{husband's education}
-    \item{\code{huswage}}{husband's wage}
-    \item{\code{faminc}}{family income}
-    \item{\code{mtr}}{a numeric vector}
-    \item{\code{motheduc}}{mother's education}
-    \item{\code{fatheduc}}{a numeric vector}
-    \item{\code{unem}}{a numeric vector}
-    \item{\code{city}}{a numeric vector}
-    \item{\code{exper}}{experience}
-    \item{\code{nwifeinc}}{non-wife income}
-    \item{\code{lwage}}{log-wage}
-    \item{\code{expersq}}{squared experience}
+    \item{\code{inlf}}{Logical, TRUE if in labor force.}
+    \item{\code{hours}}{Hours worked by wife in 1975.}
+    \item{\code{kidslt6}}{Number of young children, 5 year or younger.}
+    \item{\code{kidsge6}}{Number of children greater than 6 years of age.}
+    \item{\code{age}}{Wife's age.}
+    \item{\code{educ}}{Education level in years.}
+    \item{\code{wage}}{Average hourly earnings in 1975.}
+    \item{\code{repwage}}{Wife's wage reported at the time of the 1976 interview.}
+    \item{\code{hushrs}}{Husband's hours worked in 1975.}
+    \item{\code{husage}}{Husband's age.}
+    \item{\code{huseduc}}{Husband's education in years.}
+    \item{\code{huswage}}{Husband's wage in 1975.}
+    \item{\code{faminc}}{Family income in 1975.}
+    \item{\code{mtr}}{Marginal tax rate facing the wife.}
+    \item{\code{motheduc}}{Wife's mother's education in years.}
+    \item{\code{fatheduc}}{Wife's father's education in years.}
+    \item{\code{unem}}{Unemployment rate in county of residence.}
+    \item{\code{city}}{Logical, TRUE if live in large city.}
+    \item{\code{exper}}{Wife's labor market experience in years.}
+    \item{\code{nwifeinc}}{Non-wife income, households's total money minus wife's labor income.}
+    \item{\code{lwage}}{Wife's log-wage.}
+    \item{\code{expersq}}{Wife's squared experience.}
   }
 }
 %\details{
@@ -48,7 +48,6 @@ Wooldridge, J.M. (2002) \emph{Econometric Analysis of Cross Section and Panel Da
 }
 \examples{
 data(MROZ.RAW)
-attach(MROZ.RAW)
-hist(lwage)
+summary(MROZ.RAW)
 }
 %\keyword{datasets}

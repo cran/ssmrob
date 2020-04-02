@@ -8,7 +8,7 @@ Robust Heckit Fit: Switching Regressions
 Fits the switching regression model with probit selection using a robust two-stage estimator
 }
 \usage{
-heckit5rob(selection, outcome1, outcome2, control = heckitrob.control())
+heckit5rob(selection, outcome1, outcome2, data, control = heckitrob.control())
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -20,6 +20,9 @@ formula, first outcome equation
 }
   \item{outcome2}{
 formula, second outcome equation
+}
+  \item{data}{
+an optional data frame containing the variables in the model. If not found in data, the variables are taken from \code{environment(formula)}, typically the environment from which \code{heckit5rob} is called.
 }
   \item{control}{
 a list of parameters for controlling the fitting process
@@ -50,7 +53,7 @@ Object of class "heckit5rob".
 \references{
 Heckman, J.J. (1979) Sample Selection Bias as a Specification Error. \emph{Econometrica}, 47, p. 153-161.
 
-Zhelonkin, M., Genton M.G., and Ronchetti, E. (2016) Robust Inference in Sample Selection Models. \emph{Journal of the Royal Statistical Society, Series B}, 78, p. 805-827. 
+Zhelonkin, M., Genton M.G., and Ronchetti, E. (2016) Robust Inference in Sample Selection Models. \emph{Journal of the Royal Statistical Society, Series B}, 78, p. 805-827. \doi{10.1111/rssb.12136}
 }
 \author{
 Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti

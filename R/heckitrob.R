@@ -1,5 +1,5 @@
 heckitrob <-
-function(selection, outcome, control = heckitrob.control())
+function(selection, outcome, data, control = heckitrob.control())
 {
   if (class(outcome) != "formula") {
     stop("argument 'outcome' must be a formula")
@@ -35,6 +35,7 @@ function(selection, outcome, control = heckitrob.control())
   XO <- model.matrix(mtO, mfO)
   NXO <- ncol(XO)
   YO <- model.response(mfO)
+  YS <- ifelse(YS == T, 1, 0)
   if(attributes(XS)$dimnames[[2]][1] == "(Intercept)") { XS <- XS[,-1]; seqn <- YS ~ XS} 
   else {seqn <- YS ~ XS - 1}
   result$stage1 <- glmrob(seqn, family = binomial(link = probit),

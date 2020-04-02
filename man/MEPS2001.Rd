@@ -5,34 +5,24 @@
 Ambulatory Expenditures Data
 }
 \description{
-Sample of 3328 observations, with 526 zero expenditures.
+The dataset is an extract from the Medical Expenditures Panel Survey. Sample of 3328 observations, with 526 zero expenditures. It was used for illustrative examples by Cameron and Trivedi (2009, Chapter 16).
 }
 \usage{data(MEPS2001)}
 \format{
-  A data frame with 3328 observations on the following 22 variables.
+  A data frame with 3328 observations on the following 12 variables.
   \describe{
-    \item{\code{educ}}{education status}
-    \item{\code{age}}{age}
-    \item{\code{income}}{income}
-    \item{\code{female}}{gender}
-    \item{\code{vgood}}{a numeric vector}
-    \item{\code{good}}{a numeric vector}
-    \item{\code{hospexp}}{a numeric vector}
-    \item{\code{totchr}}{number of chronic diseases}
-    \item{\code{ffs}}{a numeric vector}
-    \item{\code{dhospexp}}{a numeric vector}
-    \item{\code{age2}}{a numeric vector}
-    \item{\code{agefem}}{a numeric vector}
-    \item{\code{fairpoor}}{a numeric vector}
-    \item{\code{year01}}{a numeric vector}
-    \item{\code{instype}}{a numeric vector}
-    \item{\code{ambexp}}{ambulatory expenditures}
-    \item{\code{lambexp}}{log ambulatory expenditures}
-    \item{\code{blhisp}}{ethnicity}
-    \item{\code{instype_s1}}{a numeric vector}
-    \item{\code{dambexp}}{dummy variable, ambulatory expenditures}
-    \item{\code{lnambx}}{a numeric vector}
-    \item{\code{ins}}{insurance status}
+    \item{\code{educ}}{Educational attainment, in years.}
+    \item{\code{age}}{Age.}
+    \item{\code{income}}{Income.}
+    \item{\code{female}}{Logical, TRUE if female.}
+    \item{\code{totchr}}{Number of chronic diseases.}
+    \item{\code{age2}}{Age squared}
+    \item{\code{ambexp}}{Ambulatory expenditures.}
+    \item{\code{lambexp}}{Log ambulatory expenditures.}
+    \item{\code{blhisp}}{Ethnicity. Logical, TRUE if black or hispanic.}
+    \item{\code{dambexp}}{Logical, TRUE if the ambulatory expenditures are greater than zero.}
+    \item{\code{lnambx}}{Log ambulatory expenditures, with zeros replacing NA's.}
+    \item{\code{ins}}{Insurance status. Logical, TRUE if insured.}
   }
 }
 %\details{
@@ -46,7 +36,6 @@ Cameron, C.A. and Trivedi, P.K. (2009) \emph{Microeconometrics Using Stata}, Col
 }
 \examples{
 data(MEPS2001)
-attach(MEPS2001)
-hist(lnambx)
+summary(MEPS2001)
 }
 %\keyword{datasets}

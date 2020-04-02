@@ -1,3 +1,16 @@
+Changes in ssmrob version 0.8
+
+	+ data argument was added for functions ssmrob, heckitrob, heckit5rob and etregrob.
+
+	+ The datasets were updated: binary variables are logical now. 
+	Several variables with missing documentation were removed from MEPS2001 dataset. 
+	Documentation for datasets was updated.
+
+	+ Computation of the (co)variance matrix for the estimator was made more efficient.
+	
+	+ NAMESPACE was updated: instead of package namespaces (MASS, robustbase, sampleSelection)
+	only the necessary functions are imported.
+	
 Changes in ssmrob version 0.7
 
 	+ Generic functions nobs and model.matrix were added.
