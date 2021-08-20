@@ -50,6 +50,8 @@ Cameron, C.A., Trivedi, P.K. (2009) Microeconometrics Using Stata. College Stati
 Heckman, J.J. (1979) Sample Selection Bias as a Specification Error. \emph{Econometrica}, 47, p. 153-161.
 
 Zhelonkin, M., Genton M.G., and Ronchetti, E. (2016) Robust Inference in Sample Selection Models. \emph{Journal of the Royal Statistical Society, Series B}, 78, p. 805-827. \doi{10.1111/rssb.12136}
+
+Zhelonkin, M., Ronchetti, E. (2021) Robust Analysis of Sample Selection Models through the R Package ssmrob. \emph{Journal of Statistical Software}, 99, 4, p. 1-35. \doi{10.18637/jss.v099.i04}
 }
 \author{
 Mikhail Zhelonkin, Marc G. Genton, Elvezio Ronchetti

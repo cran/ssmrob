@@ -1,0 +1,22 @@
+print.summary.heckit5rob <-
+function(x, digits = 4, ...)
+{
+  cat("Call: \n")
+  print(x$call)
+  cat(" \n")
+  cat("Switching regression model / robust 2-step M-estimation \n")
+  cat(x$nobs, "observations:", x$nobs1, "in regime 1 and", x$nobs2, "in regime 2\n" )
+  cat("Probit selection equation: \n")
+  names(x$coefficients$selection) <- c("Estimate", "Std. Error", "t value", "Pr(>|t|)"," ")
+  print(x$coefficients$selection, digits = digits)
+  cat("Outcome equation, regime 1: \n")
+  names(x$coefficients$outcome1) <- c("Estimate", "Std. Error", "t value", "Pr(>|t|)"," ")
+  print(x$coefficients$outcome1, digits = digits)
+  cat("Outcome equation, regime 2: \n")
+  names(x$coefficients$outcome2) <- c("Estimate", "Std. Error", "t value", "Pr(>|t|)"," ")
+  print(x$coefficients$outcome2, digits = digits)
+  cat("---\n")
+  cat("Signif. codes: 0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 \n")
+  cat(" \n")
+  cat("sigma:", x$sigma1, "in regime 1 and", x$sigma2, "in regime 2 \n")
+}

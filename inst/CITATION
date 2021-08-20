@@ -1,0 +1,17 @@
+bibentry(bibtype = "Article",
+  title        = "Robust Analysis of Sample Selection Models through the {R} Package {ssmrob}",
+  author       = c(person(given = "Mikhail",
+                          family = "Zhelonkin",
+                          email = "Zhelonkin@ese.eur.nl"),
+                   person(given = "Elvezio",
+                          family = "Ronchetti",
+                          email = "Elvezio.Ronchetti@unige.ch")),
+  journal      = "Journal of Statistical Software",
+  year         = "2021",
+  volume       = "99",
+  number       = "4",
+  pages        = "1--35",
+  doi          = "10.18637/jss.v099.i04",
+  header       = "To cite ssmrob in publications use:"
+)
+

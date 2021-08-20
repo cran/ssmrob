@@ -44,6 +44,8 @@ Object of class "etregrob".
 }
 \references{
 Maddala G.S. (1983) Limited-Dependent and Qualitative Variables in Econometrics. Cambridge: Cambridge University Press.
+
+Zhelonkin, M., Ronchetti, E. (2021) Robust Analysis of Sample Selection Models through the R Package ssmrob. \emph{Journal of Statistical Software}, 99, 4, p. 1-35. \doi{10.18637/jss.v099.i04}
 }
 \author{
 Mikhail Zhelonkin

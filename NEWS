@@ -1,6 +1,11 @@
+Changes in ssmrob version 1.0
+
+	+ Documentation was updated. The current version accompanies the publication in the 
+	Journal of Statistical Software, <doi:10.18637/jss.v099.i04> 
+	
 Changes in ssmrob version 0.8
 
-	+ data argument was added for functions ssmrob, heckitrob, heckit5rob and etregrob.
+	+ Data argument was added for functions ssmrob, heckitrob, heckit5rob and etregrob.
 
 	+ The datasets were updated: binary variables are logical now. 
 	Several variables with missing documentation were removed from MEPS2001 dataset. 
@@ -15,9 +20,9 @@ Changes in ssmrob version 0.7
 
 	+ Generic functions nobs and model.matrix were added.
 	
-	+ print and summary outputs were adjusted to mimic more standard R model printing outputs
+	+ print and summary outputs were adjusted to mimic more standard R model printing outputs.
 	
-	+ fitted model objects were extended, see documentation
+	+ fitted model objects were extended, see documentation.
 
 Changes in ssmrob version 0.6
 
